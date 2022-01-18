@@ -7,8 +7,17 @@ var playerTurn = '';
 var warning = '';
 var playing = false;
 // Events
-document.querySelector('.reset').addEventListener('click', reset);
+document.querySelector('.reset').addEventListener('click', reset); // Adicionando uma ação no botão reset
+document.querySelectorAll('.item').forEach(function (item) {
+    item.addEventListener('click', itemClick);
+}); // Adicionando evento de click em todos os itens
 // Functions
+function itemClick(event) {
+    var item = event.target.getAtrribute('data-item');
+    if (square[item] === '') {
+        square[item] = playerTurn;
+    }
+}
 function reset() {
     warning = '';
     var random = Math.floor(Math.random() * 2); //Random player

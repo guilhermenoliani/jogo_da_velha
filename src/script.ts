@@ -7,9 +7,18 @@ let playerTurn = '';
 let warning = '';
 let playing = false;
 // Events
-document.querySelector('.reset').addEventListener('click', reset);
+document.querySelector('.reset').addEventListener('click', reset); // Adicionando uma ação no botão reset
+document.querySelectorAll('.item').forEach(item =>{ //Percorre todos os itens
+    item.addEventListener('click', itemClick);
+}); // Adicionando evento de click em todos os itens
 
 // Functions
+function itemClick(event){
+    let item = event.target.getAtrribute('data-item');
+    if(square[item] === ''){
+        square[item] = playerTurn;
+    }
+}
 function reset(){
     warning = '';
 
