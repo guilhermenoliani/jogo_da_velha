@@ -1,11 +1,11 @@
 // Dados iniciais
-var quadro = {
+var square = {
     a1: '', a2: '', a3: '',
     b1: '', b2: '', b3: '',
     c1: '', c2: '', c3: ''
 };
 var playing = false;
-var vez = 'x';
+var playerTurn = 'x';
 var warning = '';
 reset();
 // Eventos
@@ -13,8 +13,8 @@ document.querySelector('.reset').addEventListener('click', reset);
 document.querySelectorAll('.item').forEach(function (item) {
     item.addEventListener('click', function (e) {
         var loc = e.target.getAttribute('data-item');
-        if (playing && quadro[loc] === '') {
-            quadro[loc] = vez;
+        if (playing && square[loc] === '') {
+            square[loc] = playerTurn;
             renderQuadro();
             togglePlayer();
         }
@@ -25,10 +25,10 @@ function reset() {
     warning = '';
     // definir a vez
     var random = Math.floor(Math.random() * 2);
-    vez = random === 0 ? 'x' : 'o';
-    // resetar os quadros
-    for (var i in quadro) {
-        quadro[i] = '';
+    playerTurn = random === 0 ? 'x' : 'o';
+    // resetar os square
+    for (var i in square) {
+        square[i] = '';
     }
     // renderizar tudo
     renderQuadro();
@@ -36,10 +36,10 @@ function reset() {
     playing = true;
 }
 function renderQuadro() {
-    for (var i in quadro) {
+    for (var i in square) {
         var item = document.querySelector("div[data-item=".concat(i, "]"));
-        if (quadro[i] !== '') {
-            item.innerHTML = quadro[i];
+        if (square[i] !== '') {
+            item.innerHTML = square[i];
         }
         else {
             item.innerHTML = '';
@@ -48,11 +48,11 @@ function renderQuadro() {
     checkGame();
 }
 function renderInfo() {
-    document.querySelector('.vez').innerHTML = vez;
+    document.querySelector('.vez').innerHTML = playerTurn;
     document.querySelector('.resultado').innerHTML = warning;
 }
 function togglePlayer() {
-    vez = vez === 'x' ? 'o' : 'x';
+    playerTurn = playerTurn === 'x' ? 'o' : 'x';
     renderInfo();
 }
 function checkGame() {
@@ -82,15 +82,15 @@ function checkWinnerFor(i) {
     ];
     for (var w in pos) {
         var pArray = pos[w].split(',');
-        var hasWon = pArray.every(function (option) { return quadro[option] === i; });
+        var hasWon = pArray.every(function (option) { return square[option] === i; });
         if (hasWon)
             return true;
     }
     return false;
 }
 function isFull() {
-    for (var i in quadro) {
-        if (quadro[i] === '') {
+    for (var i in square) {
+        if (square[i] === '') {
             return false;
         }
     }
