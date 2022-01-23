@@ -10,12 +10,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(70, 70, 70);
+  background-color: #aaa;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  color: #fff;
+  color: #000;
   margin: 20px 0;
 }
 
@@ -33,7 +33,7 @@ h1 {
   align-items: center;
   font-size: 60px;
   font-weight: bold;
-  color: #fff;
+  color: #000;
   cursor: pointer;
 }
 .item:hover {
@@ -41,23 +41,23 @@ h1 {
 }
 
 .item.t {
-  border-top: 1px solid #fff;
+  border-top: 1px solid #000;
 }
 .item.l {
-  border-left: 1px solid #fff;
+  border-left: 1px solid #000;
 }
 .item.r {
-  border-right: 1px solid #fff;
+  border-right: 1px solid #000;
 }
 .item.b {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #000;
 }
 
 .info {
   width: 300px;
   display: flex;
   margin-top: 30px;
-  border: 1px dotted #fff;
+  border: 1px dotted #000;
   padding: 10px;
 }
 .infoitem {
@@ -65,19 +65,19 @@ h1 {
 }
 .infotitulo {
   text-align: center;
-  color: #fff;
+  color: #000;
   margin-bottom: 10px;
 }
 .infocorpo {
   text-align: center;
-  color: #fff;
+  color: #000;
   font-size: 20px;
 }
 
 .reset {
   border: 1px solid #000;
   background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: #000;
   padding: 10px;
   margin-top: 20px;
 }
